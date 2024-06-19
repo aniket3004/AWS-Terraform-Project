@@ -1,34 +1,86 @@
-# Web Tier using AWS EC2 Linux (Multi-AZ with ALB)
+# Terraform AWS Highly Available Web Server Project
 
-Deploying Linux Server EC2 Instances in AWS using Terraform with ALB and Multi AZ
+This project automates the deployment of a highly available web server infrastructure on AWS using Terraform. The infrastructure includes multiple web servers deployed across different availability zones (AZs), load balancers for distributing traffic, and necessary networking components.
+
+## Table of Contents
+
+1. [Overview](#overview)
+2. [Architecture](#architecture)
+3. [Prerequisites](#prerequisites)
+4. [Installation](#installation)
+5. [Usage](#usage)
+6. [Configuration](#configuration)
+7. [Customization](#customization)
+8. [Contributing](#contributing)
+9. [Running Website](#running-website)
 
 
-1. vpc module - to create vpc, public subnets, internet gateway, security groups and route tables
-2. web module - to create Linux Web EC2 instances with userdata script to display instance metadata using latest Amazon Linux ami in multiple subnets created in vpc module
-3. alb module - to create an application load balancer with target group containing ec2 instances from web module
-4. main module - Above modules get called in main config.
+## Overview
+
+This project aims to provide a scalable and fault-tolerant web server setup on AWS using Terraform. It leverages AWS's capabilities such as Elastic Load Balancers (ELB), and Virtual Private Clouds (VPC) to achieve high availability and reliability for web applications.
+
+## Architecture
+
+The architecture deployed by Terraform includes the following components:
+- Multiple EC2 instances spread across different AZs.
+- Application Load Balancer (ALB) to distribute incoming traffic across the EC2 instances.
+- Virtual Private Cloud (VPC) with public and private subnets.
+- Security Groups to control traffic to EC2 instances and ALB.
+
+For a detailed view, refer to the Terraform configuration files (`*.tf`) in this repository.
+
+## Prerequisites
+
+Before you begin, ensure you have the following:
+- AWS account with appropriate permissions to create resources.
+- Terraform installed locally. You can download it from [terraform.io](https://www.terraform.io/downloads.html).
+
+## Installation
+
+To deploy the infrastructure using Terraform:
+1. Clone this repository:
+   
+   git clone https://github.com/aniket3004/AWS-Terraform-Project.git
+   cd repository
+   
+2. Initialize Terraform:
+   
+   terraform init
+   
+3. Review and customize the `variables.tf` file to set necessary configurations.
+4. Apply the Terraform configuration:
+   
+   terraform apply
+   
+
+## Usage
+
+After deployment, you can access your web application via the ALB's DNS name. To manage the infrastructure:
+- Use `terraform plan` to see the execution plan.
+- Use `terraform apply` to apply the changes required to reach the desired state of the configuration.
+- Use `terraform destroy` to destroy the Terraform-managed infrastructure.
+
+## Configuration
+
+The `variables.tf` file contains configurable variables such as instance type, AMI ID, and AWS region. Adjust these variables as per your requirements before applying the Terraform configuration.
+
+## Customization
+
+You can customize the Terraform modules and configurations to suit specific needs:
+- Add more AWS resources such as databases or caching layers.
+- Incorporate security best practices or additional monitoring.
 
 
+## Contributing
 
-Outputs:
+Contributions are welcome! Please fork this repository and submit a pull request with your changes. For major modifications, please open an issue first to discuss the proposed changes.
 
-alb_dns_name = "tf-lb-20240611143924238100000005-416065247.us-east-1.elb.amazonaws.com"
-ec2_instance_ids = [
-  "i-05ddf8b19ef0e93a8",
-  "i-0e588e5aed510a9b0",
-]
-public_subnets = [
-  "subnet-0f9a964167fd83d02",
-  "subnet-08441f9cdc174869c",
-]
-security_group_alb = [
-  "sg-09c07402808ca70f4",
-]
-security_group_ec2 = [
-  "sg-0d2ce718dc8bdeff8",
-]
+---
 
-Running Website:
+Feel free to expand or customize this template further based on specific details of your project and the complexity of your Terraform configuration. This README file serves as a starting point to guide users and contributors through your AWS Terraform project effectively.
+
+
+## Running Website:
 
 ![Alt text](/images/vm1.png)
 

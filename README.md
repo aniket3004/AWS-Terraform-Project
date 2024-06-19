@@ -75,10 +75,6 @@ You can customize the Terraform modules and configurations to suit specific need
 
 Contributions are welcome! Please fork this repository and submit a pull request with your changes. For major modifications, please open an issue first to discuss the proposed changes.
 
----
-
-Feel free to expand or customize this template further based on specific details of your project and the complexity of your Terraform configuration. This README file serves as a starting point to guide users and contributors through your AWS Terraform project effectively.
-
 
 ## Running Website:
 
@@ -94,3 +90,7 @@ EC2:
 
 ALB:
 ![Alt text](/images/alb.png)
+
+---
+
+Feel free to expand or customize this template further based on specific details of your project and the complexity of your Terraform configuration. This README file serves as a starting point to guide users and contributors through your AWS Terraform project effectively.

@@ -39,17 +39,17 @@ Before you begin, ensure you have the following:
 
 To deploy the infrastructure using Terraform:
 1. Clone this repository:
-   
+   ```
    git clone https://github.com/aniket3004/AWS-Terraform-Project.git
    cd repository
    
 2. Initialize Terraform:
-   
+   ```
    terraform init
    
 3. Review and customize the `variables.tf` file to set necessary configurations.
 4. Apply the Terraform configuration:
-   
+   ```
    terraform apply
    
 
